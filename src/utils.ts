@@ -1,9 +1,9 @@
 import { S3Settings } from './settings';
-import settings from '../settings';
+import settings from '../settings.js';
 import * as mime from 'mime-types';
 import * as path from 'path';
 import * as crypto from 'crypto';
-import S3 from 'aws-sdk/clients/s3';
+import S3 from 'aws-sdk/clients/s3.js';
 import { GitlabHelper } from './gitlabHelper';
 
 export const sleep = (milliseconds: number) => {

@@ -1,6 +1,6 @@
-import settings from '../settings';
+import settings from '../settings.js';
 import { GithubSettings } from './settings';
-import * as utils from './utils';
+import * as utils from './utils.js';
 import { Octokit as GitHubApi, RestEndpointMethodTypes } from '@octokit/rest';
 import { Endpoints } from '@octokit/types';
 import {

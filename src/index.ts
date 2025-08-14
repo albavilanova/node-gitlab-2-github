@@ -3,9 +3,9 @@ import {
   MilestoneImport,
   SimpleLabel,
   SimpleMilestone,
-} from './githubHelper';
-import { GitlabHelper, GitLabIssue, GitLabMilestone } from './gitlabHelper';
-import settings from '../settings';
+} from './githubHelper.js';
+import { GitlabHelper, GitLabIssue, GitLabMilestone } from './gitlabHelper.js';
+import settings from '../settings.js';
 
 import { Octokit as GitHubApi } from '@octokit/rest';
 import { throttling } from '@octokit/plugin-throttling';
@@ -343,7 +343,7 @@ async function transferLabels(attachmentLabel = true, useLowerCase = true) {
   inform('Transferring Labels');
   console.warn(CCWARN,'NOTE (2022): GitHub descriptions are limited to 100 characters, and do not accept 4-byte Unicode');
 
-  const invalidUnicode = /[\u{10000}-\u{10FFFF}]|(?![*#0-9]+)[\p{Emoji}\p{Emoji_Modifier}\p{Emoji_Component}\p{Emoji_Modifier_Base}\p{Emoji_Presentation}]/gu;
+  const invalidUnicode = new RegExp("/[\u{10000}-\u{10FFFF}]|(?![*#0-9]+)[\p{Emoji}\p{Emoji_Modifier}\p{Emoji_Component}\p{Emoji_Modifier_Base}\p{Emoji_Presentation}]/", "gu");
 
   // Get a list of all labels associated with this project
   let labels: SimpleLabel[] = await gitlabApi.Labels.all(

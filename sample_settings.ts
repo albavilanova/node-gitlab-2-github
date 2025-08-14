@@ -59,4 +59,6 @@ export default {
     logFile: './merge-requests.json',
     log: false,
   },
+  commitMap: {
+  }
 } as Settings;

@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "allowJs": false,
+    "module": "ESNext",
     "lib": ["es2020.string"],
-    "target": "es5",
+    "target": "es2017",
     "downlevelIteration": true,
     //"strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "Node"
   },
   "include": ["./src/**/*", "settings.ts"]
 }
